@@ -18,6 +18,8 @@
         <junit.version>5.9.1</junit.version>
         <jbcrypt.version>0.4</jbcrypt.version>
         <token.security.version>1.0.1</token.security.version>
+        <lombok.version>1.18.34</lombok.version>
+        <nimbus-jose-jwt.version>9.0.1</nimbus-jose-jwt.version>
 
         <!--  Javalin    -->
         <javalin.port>7070</javalin.port>
@@ -36,6 +38,12 @@
             <groupId>com.github.Hartmannsolution</groupId>
             <artifactId>TokenSecurity</artifactId>
             <version>${token.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>${nimbus-jose-jwt.version}</version>
         </dependency>
 
         <dependency>
@@ -61,7 +69,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--  DB    -->
@@ -168,6 +176,22 @@
     <build>
         <finalName>app</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <!-- Maven Shade Plugin for creating a fat JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
