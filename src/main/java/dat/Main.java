@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 public class Main {
 
     public static void main(String[] args) {
+        //TODO: Watchtower Test
         ApplicationConfig.startServer(7070);
     }
 }
