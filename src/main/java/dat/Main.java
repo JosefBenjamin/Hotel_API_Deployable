@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class Main {
 
     public static void main(String[] args) {
-        //TODO: Watchtower Test again!!!!
+        //TODO: Just pushing this to get the ball rolling of the CI/CD
         ApplicationConfig.startServer(7070);
     }
 }
